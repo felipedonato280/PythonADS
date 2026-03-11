@@ -1,79 +1,118 @@
---CONSULTAS AULA 2
-
---1) Selecione todos os engenheiros.
-
-select * from ENGENHEIRO;
-
---2) Retorne os nomes dos engenheiros que participam do projeto de código 1.
-
-select nome_eng 
-from engenheiro, participacao
-where engenheiro.cod_eng = participacao.cod_eng and cod_proj = 1;
-
-select nome_eng
-from engenheiro inner join participacao using (cod_eng)
-where cod_proj = 1;
-
---3) Retorne os nomes dos engenheiros que participam no projeto denominado "Projeto 1".
-
-select nome_eng
-from engenheiro, projeto, participacao
-where engenheiro.cod_eng = participacao.cod_eng and 
-projeto.cod_proj = participacao.cod_proj and nome_proj = 'Projeto 1';
-
---4) Retorne os nomes dos projetos que o engenheiro de código 3 participa.
-
-select nome_proj
-from projeto, participacao
-where projeto.cod_proj = participacao.cod_proj and cod_eng = 3;
-
-
---5) Retorne os nomes dos projetos que o engenheiro Lucas participa.
-
-select nome_proj
-from projeto, engenheiro, participacao
-where engenheiro.cod_eng = participacao.cod_eng and
-projeto.cod_proj = participacao.cod_proj and nome_eng = 'Lucas';
-
---6) Retorne à quantidade de projetos que o engenheiro de código 1 participa.
-
-select count(*)
-from participacao
-where cod_eng = 1;
-
---7) Retorne à quantidade de projetos que a engenheira Ana Paula participa.
-
-select count (*)
-from engenheiro, participacao
-where engenheiro.cod_eng = participacao.cod_eng and nome_eng = 'Ana Paula';
-
---8) Retorne o nome do engenheiro e a quantidade de projetos que cada engenheiro participa, ordenando
---em ordem decrescente pela quantidade de projetos.
-
-SELECT nome_eng, COUNT(*)
-FROM engenheiro, participacao
-WHERE engenheiro.cod_eng = participacao.cod_eng
-GROUP BY nome_eng
-ORDER BY COUNT(*) DESC, nome_eng ASC;
-
---9) Retorne o código do engenheiro e a quantidade de projetos que cada engenheiro participa, 
---ordenando em ordem crescente pelo código do engenheiro e em ordem decrescente pela quantidade 
---de projetos que cada engenheiro participa.
-
-SELECT cod_eng, COUNT(*)
-FROM participacao
-GROUP BY cod_eng
-ORDER BY COUNT(*) asc;
-
---10) Retorne o código e os nomes dos engenheiros que não participam de nenhum projeto.
-
-SELECT cod_eng, nome_eng
-FROM participacao, engenheiro
-WHERE participacao.cod_eng = engenheiro.cod_eng and e
-
---11) Retorne à quantidade de engenheiros que não participam de nenhum projeto.
+--1) Listar os nomes dos alunos.
 
 
 
---12) Retorne o código e os nomes dos projetos que não tem a participação de nenhum engenheiro.
+--2) Listar os nomes e a data de nascimento. 
+
+
+
+--3) Listar os nomes e códigos dos alunos com índice de rendimento maior do que 7. 
+
+
+
+--4) Alterar o nome da aluna Ana para Ana Beatriz. 
+
+
+
+--5) Alterar o índice de rendimento de todos os alunos acrescentando 10%. 
+
+
+
+--6) Alterar a data de nascimento da aluna Maria para 30/11/1996. 
+
+
+
+--7) Listar os nomes e e-mails dos alunos que nasceram depois de 1990.
+
+
+
+--8) Excluir os dados dos alunos com índice de rendimento menor que 6. 
+
+
+
+--9) Listar todos os registros da tabela aluno. 
+
+
+
+--10) Mostrar o total de alunos da tabela aluno. 
+
+
+
+--11) Insira a coluna ‘sexo’ do tipo char (1) na tabela aluno. 
+
+
+
+--12) Insira o sexo 'M' ou 'F' de cada aluno da tabela aluno. 
+
+
+
+--13) Mostre o total de alunos do sexo masculino. 
+
+
+
+--14) Liste o nome dos alunos do sexo masculino. 
+
+
+
+--15) Mostre o total de alunos do sexo feminino. 
+
+
+
+--16) Liste o nome dos alunos do sexo feminino. 
+
+
+
+--17) Mostre a soma do índice de rendimento de todos os alunos. 
+
+
+
+--18) Mostre a soma do índice de rendimento dos alunos do sexo feminino. 
+
+
+
+--19) Mostre a soma do índice de rendimento dos alunos do sexo masculino. 
+
+
+
+--20) Mostre a média do índice de rendimento dos alunos da tabela aluno. 
+
+
+
+--21) Mostre a média do índice de rendimento dos alunos do sexo feminino. 
+
+
+
+--22) Mostre a média do índice de rendimento dos alunos do sexo masculino. 
+
+
+
+--23) Mostrar a maior nota do índice de rendimento considerando todos os alunos. 
+
+
+
+--24) Mostrar a menor nota do índice de rendimento considerando todos os alunos. 
+
+
+
+--25) Mostrar a maior e a menor nota do índice de rendimento dos alunos do sexo masculino. 
+
+
+
+--26) Mostrar a maior e menor nota do índice de rendimento dos alunos do sexo feminino. 
+
+
+
+--27) Mostrar o nome do aluno com maior índice de rendimento.  
+
+
+
+--28) Mostrar o nome do aluno com menor índice de rendimento. 
+
+
+
+--29) Mostrar os nomes dos alunos que tenham o menor e o maior índice de rendimento, respectivamente. 
+
+
+
+--30) Mostrar os nomes dos alunos juntamente com o menor e o maior índice de rendimento, respectivamente. 
 
