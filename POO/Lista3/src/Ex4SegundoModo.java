@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Ex4 {
+public class Ex4SegundoModo {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
 
@@ -8,8 +8,8 @@ public class Ex4 {
         String palavra = input.nextLine();
         String palavraContrario = "";
 
-        for(int i = 0; i < palavra.length(); i++){
-            palavraContrario += palavra.charAt(palavra.length() - 1 - i);
+        for(int i = palavra.length() - 1; i >= 0; i--){
+            palavraContrario += palavra.charAt(i);
         }
 
         System.out.println(palavraContrario);

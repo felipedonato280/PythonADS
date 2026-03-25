@@ -1,20 +1,22 @@
 import java.util.Scanner;
 
-public class Ex4 {
+public class Ex4TerceiroModo {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
 
         System.out.println("Digite a palavra: ");
         String palavra = input.nextLine();
-        String palavraContrario = "";
+        StringBuilder palavraContrario = new StringBuilder();
 
-        for(int i = 0; i < palavra.length(); i++){
-            palavraContrario += palavra.charAt(palavra.length() - 1 - i);
+        for(int i = palavra.length() - 1; i >= 0; i--){
+            palavraContrario.append(palavra.charAt(i));
         }
 
-        System.out.println(palavraContrario);
+        String palavraInvertida = palavraContrario.toString();
 
-        if(palavra.equalsIgnoreCase(palavraContrario)){
+        System.out.println(palavraInvertida);
+
+        if(palavra.equalsIgnoreCase(palavraInvertida)){
             System.out.println("É um palindromo");
         }
         else{
