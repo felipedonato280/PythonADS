@@ -8,8 +8,11 @@ GO
 
 -- RESETANDO DADOS ANTERIORES E REINICIANDO O ID DAS TABELAS
 
-TRUNCATE TABLE Pedidos;
-TRUNCATE TABLE Clientes;
+DELETE FROM Pedidos;
+DELETE FROM Clientes;
+
+DBCC CHECKIDENT ('Clientes', RESEED, 0);
+DBCC CHECKIDENT ('Pedidos', RESEED, 0);
 
 -- TABELA: Clientes
 
@@ -57,7 +60,7 @@ SELECT * FROM Clientes;
 
 SELECT * FROM Pedidos; 
 
--- JOIN pedidos + clientes 
+--pedidos + clientes 
 
 SELECT (
     SELECT Nome
