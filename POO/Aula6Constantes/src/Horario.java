@@ -6,32 +6,23 @@ public class Horario {
     int minutos;
 
     public Horario(int hora, int minutos){
-        if(hora >= 0 && hora <= 23){
-            this.hora = hora;
-        }
-        else{
-            System.out.println("A hora digitada esta incorreta");
-        }
-
-        if(minutos >= 0 && minutos <= 59){
-            this.minutos = minutos;
-        }
-        else{
-            System.out.println("Os minutos digitados estao incorretos");
-        }
+        this.hora = hora;
+        this.minutos = minutos;
     }
 
     public Horario() {
     }
 
-    public void lerTeclado(){
-        Scanner input = new Scanner(System.in);
+    public void lerTeclado(Scanner input, String tipo) {
+        do {
+            System.out.println("Informe as horas "+ tipo +" (0-23): ");
+            hora = input.nextInt();
+        } while (hora < 0 || hora > 23);
 
-        System.out.println("Informe as horas: ");
-        hora = input.nextInt();
-
-        System.out.println("Informe os minutos: ");
-        minutos = input.nextInt();
+        do {
+            System.out.println("Informe os minutos "+ tipo +" (0-59): ");
+            minutos = input.nextInt();
+        } while (minutos < 0 || minutos > 59);
     }
 
     public int paraMinutos(){
@@ -50,11 +41,15 @@ public class Horario {
     }
 
     public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+
         Horario inicio = new Horario();
-        inicio.lerTeclado();
+        inicio.lerTeclado(input, "inicio");
 
         Horario fim = new Horario();
-        fim.lerTeclado();
+        fim.lerTeclado(input, "fim");
+
+        input.close();
 
         int intervalo = calcularDiferenca(inicio, fim);
         System.out.println("O intervalo resultante é de " + intervalo + " minutos");

@@ -17,7 +17,9 @@ public class Aula2 {
         }
 
         boolean status = false;
+
         int i = 0;
+
         while(status == false){
             System.out.println(i);
             i++;
@@ -26,7 +28,9 @@ public class Aula2 {
         }
 
         boolean encontrado = false;
+
         i = 0;
+
         do{
             System.out.println(i);
             i++;
