@@ -68,12 +68,34 @@ ORDER BY COUNT(*) asc;
 --10) Retorne o código e os nomes dos engenheiros que não participam de nenhum projeto.
 
 SELECT cod_eng, nome_eng
-FROM participacao, engenheiro
-WHERE participacao.cod_eng = engenheiro.cod_eng and e
+FROM engenheiro
+WHERE NOT EXISTS (
+    SELECT cod_eng
+    FROM participacao
+    WHERE participacao.cod_eng = engenheiro.cod_eng
+);
+
+select cod_eng, nome_eng
+from engenheiro
+where cod_eng not in (select cod_eng from participacao);
 
 --11) Retorne à quantidade de engenheiros que não participam de nenhum projeto.
 
+SELECT COUNT(*)
+FROM engenheiro
+WHERE cod_eng NOT IN (SELECT cod_eng FROM participacao)
 
 
 --12) Retorne o código e os nomes dos projetos que não tem a participação de nenhum engenheiro.
 
+SELECT cod_proj, nome_proj
+FROM projeto
+WHERE NOT EXISTS(
+	SELECT cod_proj
+	FROM participacao
+	WHERE participacao.cod_proj = projeto.cod_proj
+);
+
+SELECT cod_proj, nome_proj
+FROM projeto
+WHERE cod_proj NOT IN (SELECT cod_proj FROM participacao)

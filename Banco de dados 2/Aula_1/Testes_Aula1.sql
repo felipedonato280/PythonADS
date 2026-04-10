@@ -12,7 +12,7 @@ select * from engenheiro order by cod_eng asc;
 alter table engenheiro drop idade_eng;
 
 -- MUDAR O NOME DO DB
-ALTER DATABASE Lista_2 RENAME TO Lista_2_Renomeada;
+ALTER DATABASE aula_1 RENAME TO aula_1_renomeada;
 
 -- MUDAR O NOME DA TABELA
 ALTER TABLE engenheiro RENAME TO eng;
