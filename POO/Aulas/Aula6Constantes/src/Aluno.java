@@ -51,6 +51,10 @@ public class Aluno {
         qtdAlunos++;
     }
 
+    public Aluno(){
+
+    }
+
     // Metodo responsável por ler os dados do aluno via teclado
     // Não possui retorno (void)
     public void lerTeclado(){
@@ -74,6 +78,8 @@ public class Aluno {
 
         System.out.printf("Informe o curso do aluno: ");
         curso = sc.nextInt();
+
+        sc.nextLine();
 
         System.out.printf("Informe a data de nascimento: ");
         nascimento = sc.nextLine();
@@ -125,38 +131,26 @@ public class Aluno {
 
     public static void main (String args[]) {
 
+        //Aluno al01 = new Aluno();
+        //al01.lerTeclado();
+
         // Criação do primeiro objeto Aluno (instanciação)
-        Aluno al01 = new Aluno("Carlos", "919.960.290-37", "carlos@gmail.com", Aluno.CURSO_TPG);
-
-        // A leitura via teclado foi desativada para evitar digitação repetitiva
-        // al01.lerTeclado();
-
-        // Criação do segundo aluno
-        Aluno al02 = new Aluno("Felipe D.", "556.161.350-20", "felipe@t", Aluno.CURSO_ADS);
-
+        Aluno al02 = new Aluno("Carlos", "919.960.290-37", "carlos@gmail.com", Aluno.CURSO_TPG);
         al02.matricula = 202517645;
 
-        // Leitura do teclado também desativada para o segundo aluno
-        // al02.lerTeclado();
+        // Criação do segundo aluno
+        Aluno al03 = new Aluno("Felipe D.", "556.161.350-20", "felipe@gm", Aluno.CURSO_ADS);
+        al03.matricula = 202517645;
 
         // Criação de um terceiro aluno
-        Aluno al03 = new Aluno("Gustavo", "315.339.860-70", "gustavo@ymail.com", Aluno.CURSO_ADS);
+        Aluno al04 = new Aluno("Gustavo", "315.339.860-70", "gustavo@ymail.com", Aluno.CURSO_ADS);
+        al04.matricula = 202518644;
 
-        al03.matricula = 202518644;
 
-        // Exibição dos dados dos alunos
-        System.out.printf(al01.toString());
-
-        System.out.println(); // quebra de linha
-
-        // Exibe os dados em letras maiúsculas
-        System.out.printf(al02.toString().toUpperCase());
-
-        System.out.println(); // quebra de linha
-
-        System.out.printf(al03.toString());
-
-        System.out.println(); // quebra de linha
+        //System.out.println(al01.toString());
+        System.out.println(al02.toString().toUpperCase());
+        System.out.println(al03.toString());
+        System.out.println(al04.toString());
 
         // Exibição da quantidade total de alunos criados (atributo estático)
         System.out.printf(Aluno.exibirQtdAlunos());

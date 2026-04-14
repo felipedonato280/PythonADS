@@ -20,8 +20,7 @@ public class Funcionario{
         this.salario = salario;
         this.cargo = cargo;
     }
-
-    /*
+    
     public void lerFuncionario(){
         Scanner input = new Scanner(System.in);
 
@@ -39,7 +38,6 @@ public class Funcionario{
         System.out.println("Digite o seu cargo: ");
         cargo = input.nextLine();
     }
-    */
 
     public String toString(){
         String saidaM1 = "";

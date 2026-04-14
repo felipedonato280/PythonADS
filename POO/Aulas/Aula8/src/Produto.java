@@ -60,6 +60,7 @@ public class Produto {
                 "Preco de venda: " + precoVenda + "\n";
     }
 
+    /*
     public static void main(String[] args){
         Produto prod01 = new Produto(101, "Coca Lata", "Bebidas", 2f);
         Produto prod02 = new Produto(102, "Leite", "Bebidas", 1.50f, 6.50f);
@@ -78,5 +79,5 @@ public class Produto {
         System.out.println(prod06.toString());
         System.out.println(prod07.toString());
         System.out.println(prod08.toString());
-    }
+    }*/
 }
