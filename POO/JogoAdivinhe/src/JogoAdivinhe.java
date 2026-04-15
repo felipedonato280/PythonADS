@@ -5,7 +5,9 @@ public class JogoAdivinhe {
     int numeroSecreto;
     boolean finalizado;
     int tentativas;
-    private final int LIMITE_TENTATIVAS = 10;
+    static final int LIMITE_TENTATIVAS = 10;
+    //Usando constante pois este numero nao muda, em caso de implementar a dificuldade seria interessante diminuir o limite de tentativas
+    //Assim deixando de ser constante
     int dificuldade;
 
     public JogoAdivinhe(){
@@ -14,8 +16,11 @@ public class JogoAdivinhe {
         // implementei o atributo dificuldade, pois quanto maior o tamanho do random, mais dificil fica de acertar
         // Para melhorias futuras fica melhor assim.
 
-        this.dificuldade = 101;
-        this.numeroSecreto = random.nextInt(1, dificuldade);
+        this.dificuldade = 100;
+        this.numeroSecreto = random.nextInt(dificuldade) + 1;
+        //this.numeroSecreto = random.nextInt(1, dificuldade + 1);
+        //Estava usando o random acima, mas vi que é uma implementação mais recente e nao funciona em todas as versoes do java
+        //Estava usando pois fica mais parecido com o random do python
         this.tentativas = 0;
         this.finalizado = false;
     }
@@ -28,15 +33,15 @@ public class JogoAdivinhe {
         int palpite;
 
         do{
-            System.out.println("Qual o seu palpite? numeros de 1 a " + (dificuldade - 1));
-            // Mostra dificuldade - 1 para ficar de 1 a 100, ja que o random nao pega o ultimo numero, tive que colocar de 1 a 101
+            System.out.println("\n" + "Qual o seu palpite? numeros de 1 a " + dificuldade);
+            // Mostra a distancia, de 1 ate o valor da dificuldade
             palpite = input.nextInt();
 
-            if(palpite < 1 || palpite >= dificuldade){
+            if(palpite < 1 || palpite > dificuldade){
                 System.out.println("Valor inválido! Tente novamente.");
             }
 
-        }while(palpite < 1 || palpite >= dificuldade);
+        }while(palpite < 1 || palpite > dificuldade);
 
         return palpite;
     }
